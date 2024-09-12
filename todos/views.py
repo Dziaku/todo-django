@@ -1,5 +1,12 @@
 from django.http import HttpResponse
+from django.views import generic
+
+from .models import ToDoList
 
 
-def index(request):
-    return HttpResponse("You're at the todos index.")
+class IndexView(generic.ListView):
+    model = ToDoList
+    paginate_by = 50
+
+class DetailView(generic.DetailView):
+    model = ToDoList

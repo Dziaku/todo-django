@@ -1,0 +1,6 @@
+<h1>{{ object.name }}</h1>
+<ul>
+    {% for ToDoItem in ToDoList.ToDoItem_set.all %}
+        <li>{{ ToDoItem.item_description }} - {{ ToDoItem.status}} - {{ ToDoItem.deadline }}</li>
+    {% endfor %}
+</ul>
