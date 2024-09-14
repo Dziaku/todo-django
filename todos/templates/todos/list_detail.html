@@ -1,7 +1,19 @@
 <h1>{{ object.name }}</h1>
-Task to do - Done? - Deadline
-<ul>
+<table>
+    <tr>
+        <td>Task to do</td>
+        <td>Done?</td>
+        <td>Deadline date</td>
+    </tr>
+
     {% for item in object.item_set.all %}
-        <li>{{ item.task }} - {{ item.status}} - {{ item.deadline_date }}</li>
+        <tr>
+            <td>{{ item.task }}</td>
+            <td>{{ item.status}}</td>
+            <td>{{ item.deadline_date }}</td>
+            
+        </tr>
     {% endfor %}
-</ul>
+    <tr><td><a href="{% url 'todos:addtask' object.id %}">Add new task</a></td></tr>
+</table><br>
+<a href="{% url 'todos:index' %}">Back to lists</a>

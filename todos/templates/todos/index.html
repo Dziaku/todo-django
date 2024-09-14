@@ -1,0 +1,15 @@
+<h1>To-Do Lists</h1>
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>List</td>
+        <td><a href="{% url 'todos:addlist' %}">Add new list</a></td>
+    </tr>
+        {% for List in object_list %}
+            <tr><td>{{ List.id }}</td><td><a href="{% url 'todos:detail' List.id %}">{{ List.name }}</a></td></tr>
+        {% empty %}
+            <tr>No lists yet.</tr>
+        {% endfor %}
+</table>
+

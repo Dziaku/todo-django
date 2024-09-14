@@ -1,8 +1,0 @@
-<h1>To-Do Lists</h1>
-<ul>
-{% for List in object_list %}
-    <li><a href="{% url 'todos:detail' List.id %}">{{ List.name }}</a></li>
-{% empty %}
-    <li>No lists yet.</li>
-{% endfor %}
-</ul>
