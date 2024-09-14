@@ -7,7 +7,12 @@
         <td><a href="{% url 'todos:addlist' %}">Add new list</a></td>
     </tr>
         {% for List in object_list %}
-            <tr><td>{{ List.id }}</td><td><a href="{% url 'todos:detail' List.id %}">{{ List.name }}</a></td></tr>
+            <tr>
+                <td>{{ List.id }}</td>
+                <td><a href="{% url 'todos:detail' List.id %}">{{ List.name }}</a></td>
+                <td><a href="{% url 'todos:edit-list' List.id %}">Rename</a></td>
+                <td><a href="{% url 'todos:delete-list' List.id %}">Delete</a></td>
+            </tr>
         {% empty %}
             <tr>No lists yet.</tr>
         {% endfor %}

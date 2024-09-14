@@ -19,8 +19,11 @@ class List(models.Model):
 class Item(models.Model):
     list = models.ForeignKey(List, on_delete=models.CASCADE)
     task = models.CharField(max_length=256)
-    deadline_date = models.DateTimeField()
+    deadline_date = models.DateField()
     status = models.BooleanField(default= False)
 
     def __str__(self):
         return self.task
+    
+    def get_absolute_url(self):
+        return reverse('todos:detail', kwargs={"pk":self.list.pk})

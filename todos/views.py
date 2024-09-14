@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.views import generic
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 from .models import List, Item
 
@@ -17,6 +17,14 @@ class AddList(generic.CreateView):
     model = List
     fields = ['name']
 
+class UpdateList(generic.UpdateView):
+    model = List
+    fields = ['name']
+
+class DeleteList(generic.DeleteView):
+    model = List
+    success_url = reverse_lazy('todos:index')
+
 class AddItem(generic.CreateView):
     model = Item
     fields = ['list', 'task', 'deadline_date']
@@ -27,5 +35,4 @@ class UpdateItem(generic.UpdateView):
 
 class DeleteItem(generic.DeleteView):
     model = Item
-    success_url = reverse_lazy("todos:index")
     

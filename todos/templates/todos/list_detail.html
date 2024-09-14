@@ -11,6 +11,8 @@
             <td>{{ item.task }}</td>
             <td>{{ item.status}}</td>
             <td>{{ item.deadline_date }}</td>
+            <td><a href="{% url 'todos:edit-item' item.id %}">Edit task</a></td>
+            <td><a href="{% url 'todos:delete-item' item.id %}">Delete</a></td>
             
         </tr>
     {% endfor %}
