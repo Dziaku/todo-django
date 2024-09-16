@@ -35,4 +35,5 @@ class UpdateItem(generic.UpdateView):
 
 class DeleteItem(generic.DeleteView):
     model = Item
+    success_url = reverse_lazy('todos:index')
     
